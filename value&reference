@@ -1,0 +1,37 @@
+using System;
+
+namespace structure_example
+{
+    
+    class Program
+    {
+        public void valueSwap(int a, int b)
+        {
+            int c = a;
+            a = b;
+            b = c;
+            Console.WriteLine("The new values of a and b are {0} and {1}", a, b);
+        }
+
+        public void refSwap(ref int a,ref int b)
+        {
+            int c = a;
+            a = b;
+            b = c;
+            Console.WriteLine("The new values of a and b are {0} and {1}", a, b);
+        }
+
+        static void Main(string[] args)
+        {
+            int x = 10, y = 20;
+
+            Program P = new Program();
+            P.valueSwap(x, y);
+            Console.WriteLine("The new values of x and y are {0} and {1}", x, y);
+            Program R = new Program();
+            R.refSwap(ref x,ref y);
+            Console.WriteLine("The new values of x and y are {0} and {1}", x, y);
+            Console.ReadKey();
+        }
+    }
+}
