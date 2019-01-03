@@ -1,0 +1,39 @@
+using System;
+
+struct CustomerData
+{
+    Int16 RECID;
+    String CUSTOMERNAME;
+    decimal BALANCEAMOUNT;
+
+    public void getValues(Int16 id, string customer, decimal balance)
+    {
+        RECID = id;
+        CUSTOMERNAME = customer;
+        BALANCEAMOUNT = balance;
+    }
+    public void showData()
+    {
+        Console.WriteLine("The customer {0} with ID {1} has balance amount of {2}"
+            , CUSTOMERNAME, RECID, BALANCEAMOUNT);
+    }
+}
+
+namespace structure_example
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            CustomerData customer1 = new CustomerData();
+            customer1.getValues(1, "Richard nixon", 2300);
+            customer1.showData();
+
+            CustomerData customer2 = new CustomerData();
+            customer2.getValues(2, "sarah conor", 3000);
+            customer2.showData();
+            customer1.showData();
+            Console.ReadKey();
+        }
+    }
+}
