@@ -1,0 +1,80 @@
+using System;
+
+namespace structure_example
+{
+        class student {
+        public int ID;
+        public string Name;
+        public int Grade;
+        public decimal Marks;
+        public student(int IDs,string Names,int Grades,decimal Markss) {
+            ID = IDs;
+            Name = Names;
+            Grade = Grades;
+            Marks = Markss;
+        }
+    }
+
+    class Teacher : student {
+        public int teacherID;
+        public string teacherName;
+        public string teacherSubject;
+
+        public Teacher(int teacherIDt, string teacherNamet
+            , string teacherSubjectt, int ID, string Name
+            , int Grade, decimal Marks) : base(ID, Name, Grade, Marks)
+        {
+            teacherID = teacherIDt;
+            teacherName = teacherNamet;
+            teacherSubject = teacherSubjectt;
+        }
+        public string getCGPA()
+        {
+            string grade;
+            switch (Convert.ToInt64(Marks / 10))
+            {
+                case 10:
+                    grade = "A++";
+                    break;
+                case 9:
+                    grade = "A+";
+                    break;
+                case 8:
+                    grade = "A-";
+                    break;
+                case 7:
+                    grade = "B+";
+                    break;
+                case 6:
+                    grade = "B";
+                    break;
+                case 5:
+                    grade = "B-";
+                    break;
+                case 4:
+                    grade = "c";
+                    break;
+                default:
+                    grade = "F";
+                    break;
+            }
+            return grade;
+        }
+    }
+    
+    class Program
+    {        
+        static void Main(string[] args)
+        {
+            Teacher T = new Teacher(1,"harold amane","Humanities",1,"sam hart",8,74);
+           string cgpa=T.getCGPA();
+            Console.WriteLine("The grade of {0} having ID {1} studying {2} with {3} was graded {4}", T.Name
+                                                                                                   , T.ID
+                                                                                                   , T.teacherSubject
+                                                                                                   , T.teacherName
+                                                                                                   , cgpa);
+            Console.ReadKey();
+            
+        }
+    }
+}
